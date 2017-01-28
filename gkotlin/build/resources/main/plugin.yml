@@ -1,5 +1,5 @@
 name: TutorialPlugin
-main: my.test.plugin.tutorialplugin.Main
+main: com.example.gkotlin.Main
 version: 0.0.1
 author: haniokasai
 api: ["1.0.0"]

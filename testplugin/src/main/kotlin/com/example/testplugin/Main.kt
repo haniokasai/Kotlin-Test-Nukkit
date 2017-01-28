@@ -12,7 +12,7 @@ import cn.nukkit.utils.TextFormat;
 /**
  * Created by hani on 2017/01/29.
  */
-class Main : PluginBase() {
+class Main : PluginBase() ,cn.nukkit.event.Listener{
 
     override fun onEnable() {
         // Plugin startup logic
