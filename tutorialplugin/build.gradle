@@ -6,9 +6,13 @@ buildscript {
 
     repositories {
         mavenCentral()
+        maven {
+            url "http://ci.mengcraft.com:8080/plugin/repository/everything/"
+        }
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        //compile "cn.nukkit:nukkit:1.0-SNAPSHOT"
     }
 }
 
@@ -26,6 +30,14 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile "cn.nukkit.nukkit:1.0-SNAPSHOT"
+    compile "cn.nukkit:nukkit:1.0-SNAPSHOT"
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
+
+jar {
+    manifest {
+        attributes "Main-Class" : "my.test.plugin.tutorialplugin.Main"
+    }
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+}
+
