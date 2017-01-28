@@ -1,43 +1,51 @@
-group ' my.test.plugin.tutorialplugin'
+group 'my.test.plugin'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.0.6'
-
     repositories {
         mavenCentral()
+        jcenter()
         maven {
-            url "http://ci.mengcraft.com:8080/plugin/repository/everything/"
+            url "https://plugins.gradle.org/m2/"
         }
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        //compile "cn.nukkit:nukkit:1.0-SNAPSHOT"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.6'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
     }
 }
 
-apply plugin: 'java'
 apply plugin: 'kotlin'
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
 
-sourceCompatibility = 1.5
+//絶対に指定すること
+mainClassName="my.test.plugin.tutorialplugin.Main"
+
+defaultTasks 'installShadowApp'
 
 repositories {
     mavenCentral()
     maven {
-        url "http://ci.mengcraft.com:8080/plugin/repository/everything/"
+        url 'http://ci.mengcraft.com:8080/plugin/repository/everything/'      //nukkit
     }
+
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile "cn.nukkit:nukkit:1.0-SNAPSHOT"
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.6'
+    compile 'cn.nukkit:nukkit:1.0-SNAPSHOT'
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
-
-jar {
-    manifest {
-        attributes "Main-Class" : "my.test.plugin.tutorialplugin.Main"
+shadowJar {
+    dependencies {
+        include(dependency('org.jetbrains.kotlin:kotlin-runtime:1.0.6'))
     }
-    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
 }
 
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+}
+jar {
+    from { configurations.embed.collect { it.isDirectory() ? it : zipTree(it) } }
+}

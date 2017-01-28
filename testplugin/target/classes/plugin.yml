@@ -1,6 +1,0 @@
-name: ExamplePlugin
-version: ${project.version}
-main: com.example.exampleplugin.ExamplePlugin
-authors: [haniokasai]
-description: Example plugin written in Kotlin
-website: haniokasai.com

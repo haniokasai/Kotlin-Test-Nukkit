@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tutorialplugin.iml" filepath="$PROJECT_DIR$/.idea/modules/tutorialplugin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tutorialplugin_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tutorialplugin_main.iml" group="tutorialplugin" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tutorialplugin_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tutorialplugin_test.iml" group="tutorialplugin" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TutorialPlugin.iml" filepath="$PROJECT_DIR$/.idea/modules/TutorialPlugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TutorialPlugin_main.iml" filepath="$PROJECT_DIR$/.idea/modules/TutorialPlugin_main.iml" group="TutorialPlugin" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TutorialPlugin_test.iml" filepath="$PROJECT_DIR$/.idea/modules/TutorialPlugin_test.iml" group="TutorialPlugin" />
     </modules>
   </component>
 </project>
