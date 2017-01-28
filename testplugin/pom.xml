@@ -77,6 +77,14 @@
                     <execution>
                         <phase>package</phase>
                         <goals><goal>shade</goal></goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>org.jetbrains.kotlin:*</include>
+                                </includes>
+                            </artifactSet>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
