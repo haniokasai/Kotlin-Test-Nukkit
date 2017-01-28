@@ -1,0 +1,31 @@
+group ' my.test.plugin.tutorialplugin'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.0.6'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://ci.mengcraft.com:8080/plugin/repository/everything/"
+    }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "cn.nukkit.nukkit:1.0-SNAPSHOT"
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
